@@ -1,0 +1,179 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face{
+  font-family: 'material-icons';
+  src: url(material-icons.ttf);
+}
+body{
+  display: grid;
+  place-items: center;
+  background: #eef3f9;
+  height: 100vh;
+  transition: 0.3s;
+}
+body.dark{
+  background: #333;
+}
+span{
+  font-family: 'material-icons';
+}
+/* loader */
+.loader{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  z-index: 20;
+}
+.loader .bar{
+  width: 50px;
+}
+.loader .bar div{
+  width: 10px;
+  height: 10px;
+  margin: 1px;
+  background: #ddd;
+}
+.loader .bar1{
+  animation: lf 1s linear infinite alternate;
+}
+.loader .bar2{
+  animation: lf 1s linear infinite alternate;
+  animation-delay: 0.6s;
+}
+.loader .bar3{
+  animation: lf 1s linear infinite alternate;
+  animation-delay: 0.9s;
+}
+@keyframes lf{
+  0%{
+    width: 10px;
+  }
+  100%{
+    width: 100%;
+  }
+}
+/* main hero */
+.hero{
+  position: relative;
+  width: 280px;
+  height: 400px;
+  background: #fff;
+  border: 3px solid #fff;
+  overflow: hidden;
+  box-shadow: 10px 10px 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.hero.dark{
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+#mode{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 22px;
+  color: #fff;
+  transition: 0.5s ease-in;
+  z-index: 3;
+}
+#mode.act{
+  transform: rotate(180deg);
+}
+.hero .card{
+  position: relative;
+  width: 100%;
+  height: 330px;
+  background: url(2.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  border-radius: 3px;
+}
+.card:before{
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 1;
+  border-radius: 3px;
+}
+.card:after{
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 0 3px 0 30px;
+  z-index: 2;
+}
+.card .album{
+  position: relative;
+  width: 130px;
+  height: 130px;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  background: url(2.jpg) no-repeat;
+  background-size: cover;
+  z-index: 2;
+  animation: rot 8s linear infinite;
+  animation-play-state: paused;
+  transition: 0.3s;
+}
+@keyframes rot{
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.card h2{
+  position:absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  z-index: 3;
+  letter-spacing: 1px;
+  font-family: Times New Roman;
+}
+.album.dark{
+  border-color: #000;
+}
+.hero .box{
+  width: 80%;
+  height: 66px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 25px;
+}
+.hero .box .btn{
+  width: 120px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 35px;
+  text-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+}
+.btn #play-btn{
+  font-size: 50px;
+}
